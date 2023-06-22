@@ -55,3 +55,103 @@ button.register:hover {
   height: 150px;
   border-radius: 50%;
 }
+
+
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+#challenge-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+#challenge-form input[type="text"] {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+#challenge-list {
+  margin-top: 30px;
+}
+
+#challenges li {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#challenges li div {
+  margin-bottom: 10px;
+}
+
+#challenges li img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.delete-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.delete-button {
+  background-color: #ff5b5b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #e60000;
+}
+
+#my-challenges {
+  background-color: #f2f2f2;
+}
+
+#all-challenges {
+  background-color: #fff;
+}
+
+

@@ -57,7 +57,6 @@ function loginUser(e) {
         .then(data => {
             if (data.message === 'Connexion réussie') {
                 alert('Connexion réussie !');
-                // Rediriger vers une page protégée ou effectuer d'autres actions
             } else {
                 alert('Erreur lors de la connexion : ' + data.message);
             }
@@ -125,7 +124,6 @@ function loginUser(e) {
         .then(data => {
             if (data.message === 'Connexion réussie') {
                 alert('Connexion réussie !');
-                // Rediriger vers une page protégée ou effectuer d'autres actions
             } else {
                 alert('Erreur lors de la connexion : ' + data.message);
             }

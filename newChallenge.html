@@ -1,0 +1,79 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenge App</title>
+  <link rel="stylesheet" href="/src/style.css">
+  <script src="/src/challenge.js" defer></script>
+  <script src="/src/my-allChallenges.js" defer></script>
+</head>
+
+<body>
+  <h1>Challenge App</h1>
+
+  <div id="create-challenge-form">
+    <h2>Créer un nouveau challenge</h2>
+    <form id="challenge-form">
+      <input type="text" id="text-input" placeholder="Texte du challenge" required>
+      <input type="text" id="description-input" placeholder="Description du challenge" required>
+      <input type="text" id="dataset-input" placeholder="Dataset" required>
+      <input type="text" id="picture-input" placeholder="Image" required>
+      <input type="text" id="result-input" placeholder="Résultat" required>
+      <button type="submit">Créer</button>
+    </form>
+  </div>
+
+  <div id="challenge-list">
+    <h2>Liste des challenges</h2>
+    <ul id="challenges"></ul>
+  </div>
+
+</body>
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Create Challenge</title>
+  <link rel="stylesheet" href="/src/style.css">
+  <script src="/src/register.js" ></script>
+  <script src="/src/login.js" ></script>
+</head>
+<body>
+  <h1>Create Challenge</h1>
+
+  <div class="navbar">
+    <a href="/login.html">Login</a>
+    <a href="/register.html">Register</a>
+    <a href="/home.html">Home</a>
+    <a href="/newChallenge.html">Create New Challenge</a>
+    <a href="/myChallenges.html">My Challenges</a>
+  </div>
+  <form id="create-challenge-form">
+    <label for="text">Text:</label>
+    <input type="text" id="text" required>
+
+    <label for="description">Description:</label>
+    <textarea id="description" required></textarea>
+
+    <label for="dataset">Dataset:</label>
+    <input type="text" id="dataset" required>
+
+    <label for="picture">Picture:</label>
+    <input type="text" id="picture" required>
+
+    <label for="result">Result:</label>
+    <input type="text" id="result" required>
+
+    <button type="submit">Create</button>
+  </form>
+
+  <script src="/src/scripts.js"></script>
+</body>
+</html>
+

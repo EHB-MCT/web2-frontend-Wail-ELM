@@ -38,13 +38,19 @@ function createChallengeElement(challenge) {
     const resultElement = document.createElement('p');
     resultElement.textContent = `Result: ${challenge.result}`;
 
- 
+    const playButton = document.createElement('button');
+    playButton.textContent = 'Play';
+    playButton.addEventListener('click', () => {
+        playChallenge(challenge.challengeId);
+    });
+
     challengeElement.appendChild(pictureElement);
     challengeElement.appendChild(textElement);
     challengeElement.appendChild(descriptionElement);
     challengeElement.appendChild(datasetElement);
     challengeElement.appendChild(resultElement);
- 
+    challengeElement.appendChild(playButton);
+
     return challengeElement;
 }
 

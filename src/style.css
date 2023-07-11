@@ -1,157 +1,306 @@
-body {
-  padding: 20px;
-}
 
-form {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+h1 h2 h3 p{
+  font-family: 'Courier New', monospace;
 }
 
 h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
   text-align: center;
 }
 
-label {
-  font-weight: bold;
-}
-
-input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-button.register {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  background-color: red;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button.register a {
-  color: #fff;
-  text-decoration: none;
-}
-
-button.register:hover {
-  background-color: red;
-}
-
-.login {
-  display: block;
-  margin: 0 auto;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-}
-
-
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-}
-
-h1, h2 {
-  text-align: center;
-}
-
-#challenge-form {
-  display: flex;
-  flex-direction: column;
+.container {
   max-width: 400px;
   margin: 0 auto;
-}
-
-#challenge-form input[type="text"] {
-  margin-bottom: 10px;
-  padding: 5px;
-}
-
-#challenge-list {
-  margin-top: 30px;
-}
-
-#challenges li {
-  margin-bottom: 20px;
-  padding: 10px;
-  background-color: #f7f7f7;
+  padding: 40px;
+  background-color: #ffffff;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#challenges li div {
-  margin-bottom: 10px;
+
+form {
+  display: flex;
+  flex-direction: column;
 }
 
-#challenges li img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px;
-}
-
-.delete-button {
-  background-color: #e74c3c;
-  color: white;
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
   border: none;
-  padding: 5px 10px;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  color: #333333;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #428bca;
+  color: #ffffff;
+  border: none;
+  border-radius: 3px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #3071a9;
+}
+
+.error-message {
+  color: #ff0000;
+  margin-bottom: 10px;
+  font-size: 14px;
 }
 
 
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
+
+
+
+.navbar {
+  background-color: #000000;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  margin-bottom: 4em
+}
+
+.navbar a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  margin-right: 20px;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #00ff00;
+}
+
+.navbar {
+  font-family: 'Courier New', monospace;
+}
+
+.navbar a {
+  border-bottom: 2px solid #00ff00;
+  padding-bottom: 5px;
+}
+
+.navbar a:hover {
+  border-color: #ff00ff;
+}
+
+
+
+
+
+
+
+
+.navbar {
+  background-color: #000000;
+  display: flex;
+  justify-content: space-between;
   padding: 20px;
 }
 
-h1 {
+.navbar a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  margin-right: 20px;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #00ff00;
+}
+
+.navbar {
+  font-family: 'Courier New', monospace;
+}
+
+.navbar a {
+  border-bottom: 2px solid #00ff00;
+  padding-bottom: 5px;
+}
+
+.navbar a:hover {
+  border-color: #ff00ff;
+}
+
+#loginForm,
+#registerForm {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #111;
+  border-radius: 8px;
+  font-family: 'Courier New', monospace;
+  color: #fff;
+}
+
+#loginForm h1,
+#registerForm h1 {
+  color: #00ff00;
   text-align: center;
+  margin-bottom: 20px;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
+#loginForm label,
+#registerForm label {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 5px;
 }
 
-li {
-  border: 1px solid #ccc;
-  border-radius: 5px;
+#loginForm input[type="email"],
+#loginForm input[type="password"],
+#registerForm input[type="text"],
+#registerForm input[type="email"],
+#registerForm input[type="password"] {
+  width: 95%;
   padding: 10px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  border-radius: 4px;
+}
+
+#loginForm button.register,
+#registerForm button.register {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1em ;
+  border: none;
+
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#loginForm button.register a,
+#registerForm button.register a {
+  
+  text-decoration: none;
+}
+
+                                                                  /* Challenges */
+/* .challenge {
+  background-color: #111;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.challenge p {
   margin-bottom: 10px;
 }
 
-.delete-button {
-  background-color: #ff5b5b;
-  color: #fff;
+.challenge img {
+  max-width: 100%;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.challenge button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #0f0f23;
   border: none;
-  border-radius: 5px;
-  padding: 5px 10px;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
   cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
 }
 
-.delete-button:hover {
-  background-color: #e60000;
+ */
+
+ body {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Courier New', Courier, monospace;
+
 }
 
-#my-challenges {
-  background-color: #f2f2f2;
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-#all-challenges {
-  background-color: #fff;
+.challenge {
+  background-color: #222;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px;
+  width: 300px;
+  text-align: center;
+}
+
+.challenge h1 {
+  text-align: center;
+  color: white;
+  font-weight: normal
+}
+
+.challenge img {
+  width: 275px;
+  height: 185px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.challenge h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.challenge p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #00ff00;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+button:hover {
+  background-color: purple;
+  transition: background-color 0.3s;
+  color: white;
+}
+
+#challenges-list,  #my-challenges-list{
+  display: flex;
+}
+
+.challenge button{
+  
+margin-right: 1em;
+
 }
 
 
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
+}

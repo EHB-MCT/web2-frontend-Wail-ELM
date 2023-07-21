@@ -36,7 +36,6 @@
 
 //  /                                    2IEME ///////////////////////////////////////////////////////////////////////////////////////
 
-document.getElementById('loginForm').addEventListener('submit', loginUser);
 
 // function loginUser(e) {
 //   e.preventDefault();
@@ -72,6 +71,11 @@ document.getElementById('loginForm').addEventListener('submit', loginUser);
 //     });
 // }
 
+
+
+document.getElementById('loginForm').addEventListener('submit', loginUser);
+document.getElementById('loginForm').addEventListener('submit', loginUser);
+
 function loginUser(e) {
   e.preventDefault();
 
@@ -93,15 +97,20 @@ function loginUser(e) {
     .then(response => response.json())
     .then(data => {
       if (data.message === 'Connexion réussie') {
-       
-        alert('Connexion réussie !');
-        // Rediriger vers une page protégée ou effectuer d'autres actions
+        displayFeedback('Connexion réussie !', 'success');
       } else {
-        alert('Erreur lors de la connexion : ' + data.message);
+        displayFeedback('Erreur lors de la connexion : ' + data.message, 'error');
       }
     })
     .catch(error => {
       console.error('Erreur lors de la connexion :', error);
-      alert('Une erreur est survenue lors de la connexion');
+      displayFeedback('Une erreur est survenue lors de la connexion', 'error');
     });
+}
+
+function displayFeedback(message, type) {
+  const feedbackElement = document.getElementById('feedback');
+  feedbackElement.textContent = message;
+  feedbackElement.classList.remove('success', 'error');
+  feedbackElement.classList.add(type);
 }

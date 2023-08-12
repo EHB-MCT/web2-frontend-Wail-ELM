@@ -8,7 +8,9 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server --open",
+    "build": "webpack", 
+     "dev": "webpack --mode development" 
 
   },
   "keywords": [],

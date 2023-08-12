@@ -479,7 +479,7 @@ async function createChallenge(event) {
 
   const userId = localStorage.getItem('userId');
   if (!userId) {
-    console.log('Log-in first !');
+    displayFeedback('Log-in first !');
     return;
   }
 

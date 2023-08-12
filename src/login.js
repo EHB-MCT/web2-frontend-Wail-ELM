@@ -87,7 +87,7 @@ function loginUser(e) {
     password
   };
 
-  fetch('http://localhost:5000/login', {
+  fetch('https://hosting-backend-web-2-august-wail-el.onrender.com/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -104,7 +104,7 @@ function loginUser(e) {
     })
     .catch(error => {
       console.error('Error while connecting :', error);
-      displayFeedback('Error while connecting', 'error');
+      displayFeedback('Error while connecting', error);
     });
 }
 

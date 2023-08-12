@@ -1,4 +1,3 @@
-
 // function registerUser(e) {
 //   e.preventDefault();
 
@@ -6,8 +5,8 @@
 //   const email = document.getElementById('registerEmail').value;
 //   const password = document.getElementById('registerPassword').value;
 
- 
- 
+
+
 //   const userData = {
 //     username,
 //     email,
@@ -49,7 +48,7 @@ function registerUser(e) {
 
 
   if (password !== repeatPassword) {
-    displayFeedback('Les mots de passe ne correspondent pas', 'error');
+    displayFeedback('Passwords not matching', 'error');
     return;
   }
 
@@ -59,13 +58,16 @@ function registerUser(e) {
     password
   };
 
-  fetch('http://localhost:5000/register', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(userData)
-  })
+  
+
+
+    fetch('https://hosting-backend-web-2-august-wail-el.onrender.com/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(userData)
+    })
     .then(response => response.json())
     .then(data => {
       if (data.message === 'Successful registration') {
@@ -87,4 +89,3 @@ function displayFeedback(message, type) {
   feedbackElement.classList.remove('success', 'error');
   feedbackElement.classList.add(type);
 }
-

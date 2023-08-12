@@ -96,15 +96,15 @@ function loginUser(e) {
     })
     .then(response => response.json())
     .then(data => {
-      if (data.message === 'Connexion réussie') {
-        displayFeedback('Connexion réussie !', 'success');
+      if (data.message === 'Successful connection') {
+        displayFeedback('Successful connection !', 'success');
       } else {
-        displayFeedback('Erreur lors de la connexion : ' + data.message, 'error');
+        displayFeedback('Error when connecting : ' + data.message, 'error');
       }
     })
     .catch(error => {
-      console.error('Erreur lors de la connexion :', error);
-      displayFeedback('Une erreur est survenue lors de la connexion', 'error');
+      console.error('Error while connecting :', error);
+      displayFeedback('Error while connecting', 'error');
     });
 }
 

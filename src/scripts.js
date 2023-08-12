@@ -1,68 +1,81 @@
+function displayFeedback(message, type) {
+  const feedbackElement = document.getElementById('feedback');
+  feedbackElement.textContent = message;
+  feedbackElement.className = type;
+
+  setTimeout(() => {
+    feedbackElement.textContent = '';
+    feedbackElement.className = '';
+  }, 1000);
+}
+
 async function getAllChallenges() {
-    try {
-        const response = await fetch('http://localhost:5000/all-challenges');
-        const {
-            challenges
-        } = await response.json();
 
-        const challengesList = document.getElementById('challenges-list');
-        challengesList.innerHTML = '';
+  // https://hosting-backend-web-2-august-wail-el.onrender.com
+  try {
+    const response = await fetch('https://hosting-backend-web-2-august-wail-el.onrender.com/all-challenges');
+    const {
+      challenges
+    } = await response.json();
 
-        challenges.forEach(challenge => {
-            const challengeElement = createChallengeElement(challenge);
-            challengesList.appendChild(challengeElement);
-        });
-    } catch (error) {
-        console.error('Erreur lors de la récupération des défis:', error);
-        alert('Une erreur est survenue lors de la récupération des défis');
-    }
+    const challengesList = document.getElementById('challenges-list');
+    challengesList.innerHTML = '';
+
+    challenges.forEach(challenge => {
+      const challengeElement = createChallengeElement(challenge);
+      challengesList.appendChild(challengeElement);
+    });
+  } catch (error) {
+    console.log('Error when retrieving challenges:', error);
+    console.log('Error when retrieving challenges');
+  }
 }
 
 function createChallengeElement(challenge) {
-    const challengeElement = document.createElement('div');
-    challengeElement.classList.add('challenge');
+  const challengeElement = document.createElement('div');
+  challengeElement.classList.add('challenge');
 
-    const textElement = document.createElement('h2');
-    textElement.textContent = `${challenge.text}`;
+  const textElement = document.createElement('h2');
+  textElement.textContent = `${challenge.text}`;
 
-    const descriptionElement = document.createElement('p');
-    descriptionElement.textContent = `${challenge.description}`;
+  const descriptionElement = document.createElement('p');
+  descriptionElement.textContent = `${challenge.description}`;
 
-    const datasetElement = document.createElement('p');
-    datasetElement.textContent = `Dataset: ${challenge.dataset}`;
+  const datasetElement = document.createElement('p');
+  datasetElement.textContent = `Dataset: ${challenge.dataset}`;
 
-    const pictureElement = document.createElement('img');
-    pictureElement.src = challenge.picture;
-    pictureElement.alt = 'Challenge Picture';
+  const pictureElement = document.createElement('img');
+  pictureElement.src = challenge.picture;
+  pictureElement.alt = 'Challenge Picture';
 
-    const resultElement = document.createElement('p');
-    resultElement.textContent = `Result: ${challenge.result}`;
+  const resultElement = document.createElement('p');
+  resultElement.textContent = `Result: ${challenge.result}`;
 
-    const playButton = document.createElement('button');
-    playButton.textContent = 'Play';
-    playButton.addEventListener('click', () => {
-        playChallenge(challenge.challengeId);
-    });
+  const playButton = document.createElement('button');
+  playButton.textContent = 'Play';
+  playButton.addEventListener('click', () => {
+    playChallenge(challenge.challengeId);
+  });
 
-    challengeElement.appendChild(pictureElement);
-    challengeElement.appendChild(textElement);
-    challengeElement.appendChild(descriptionElement);
-    challengeElement.appendChild(datasetElement);
-    challengeElement.appendChild(resultElement);
-    challengeElement.appendChild(playButton);
+  challengeElement.appendChild(pictureElement);
+  challengeElement.appendChild(textElement);
+  challengeElement.appendChild(descriptionElement);
+  challengeElement.appendChild(datasetElement);
+  challengeElement.appendChild(resultElement);
+  challengeElement.appendChild(playButton);
 
-    return challengeElement;
+  return challengeElement;
 }
 
 
 async function playChallenge(challengeId) {
-    try {
-        const response = await fetch(`http://localhost:5000/challenges/${challengeId}`);
-        const challenge = await response.json();
+  try {
+    const response = await fetch(`https://hosting-backend-web-2-august-wail-el.onrender.com/challenges/${challengeId}`);
+    const challenge = await response.json();
 
-        const challengePage = window.open('', '_blank');
+    const challengePage = window.open('', '_blank');
 
-        challengePage.document.write(`
+    challengePage.document.write(`
             <html>
             <head>
                 <title>Challenge Details</title>
@@ -382,18 +395,18 @@ async function playChallenge(challengeId) {
                 }
                     function submitSolution(challengeId) {
                         const solution = document.getElementById('solution-textarea').value;
-                        alert('Bien joué');
+                        displayFeedback('Bien joué');
                     }
                 </script>
             </body>
             </html>
         `);
 
-        challengePage.document.close();
-    } catch (error) {
-        console.error('Erreur lors de la récupération du défi:', error);
-        alert('Une erreur survenue lors de la récupération du défi');
-    }
+    challengePage.document.close();
+  } catch (error) {
+    console.error('Error when retrieving challenges:', error);
+    displayFeedback('Error when retrieving challenges');
+  }
 }
 
 
@@ -456,142 +469,142 @@ async function playChallenge(challengeId) {
 
 
 async function createChallenge(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const text = document.getElementById('text').value;
-    const description = document.getElementById('description').value;
-    const dataset = document.getElementById('dataset').value;
-    const pictureQuery = document.getElementById('picture').value;
-    const result = document.getElementById('result').value;
+  const text = document.getElementById('text').value;
+  const description = document.getElementById('description').value;
+  const dataset = document.getElementById('dataset').value;
+  const pictureQuery = document.getElementById('picture').value;
+  const result = document.getElementById('result').value;
 
-    const userId = localStorage.getItem('userId');
-    if (!userId) {
-        console.log('Connectez-vous d\'abord');
-        return;
+  const userId = localStorage.getItem('userId');
+  if (!userId) {
+    console.log('Log-in first !');
+    return;
+  }
+
+  try {
+    const unsplashResponse = await fetch(`https://api.unsplash.com/photos/random?query=${pictureQuery}&client_id=fr0uKpERiV1VDzhrSbC6Tv5LuFzNL0eQduOaYUmXBN0`);
+    const unsplashData = await unsplashResponse.json();
+
+    if (unsplashResponse.ok) {
+      const picture = unsplashData.urls.regular;
+      const altDescription = unsplashData.alt_description;
+
+      const challengeData = {
+        text,
+        description,
+        dataset,
+        picture,
+        altDescription,
+        result,
+        userId
+      };
+
+      const response = await fetch('https://hosting-backend-web-2-august-wail-el.onrender.com/newChallenges', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(challengeData)
+      });
+
+      const {
+        message,
+        challengeId
+      } = await response.json();
+
+      if (response.ok) {
+        displayFeedback(`${message}`);
+        const currentChallengeIds = JSON.parse(localStorage.getItem('currentChallengeIds')) || [];
+        currentChallengeIds.push(challengeId);
+        localStorage.setItem('currentChallengeIds', JSON.stringify(currentChallengeIds));
+        document.getElementById('create-challenge-form').reset();
+        getAllChallenges();
+      } else {
+        displayFeedback(message);
+      }
+    } else {
+      displayFeedback('Error fetching api Unplaash');
     }
-
-    try {
-        const unsplashResponse = await fetch(`https://api.unsplash.com/photos/random?query=${pictureQuery}&client_id=fr0uKpERiV1VDzhrSbC6Tv5LuFzNL0eQduOaYUmXBN0`);
-        const unsplashData = await unsplashResponse.json();
-
-        if (unsplashResponse.ok) {
-            const picture = unsplashData.urls.regular;
-            const altDescription = unsplashData.alt_description;
-
-            const challengeData = {
-                text,
-                description,
-                dataset,
-                picture,
-                altDescription,
-                result,
-                userId
-            };
-
-            const response = await fetch('http://localhost:5000/newChallenges', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(challengeData)
-            });
-
-            const {
-                message,
-                challengeId
-            } = await response.json();
-
-            if (response.ok) {
-                alert(`${message} Challenge ID: ${challengeId}`);
-                const currentChallengeIds = JSON.parse(localStorage.getItem('currentChallengeIds')) || [];
-                currentChallengeIds.push(challengeId);
-                localStorage.setItem('currentChallengeIds', JSON.stringify(currentChallengeIds));
-                document.getElementById('create-challenge-form').reset();
-                getAllChallenges();
-            } else {
-                alert(message);
-            }
-        } else {
-            alert('Error fetching api Unplaash');
-        }
-    } catch (error) {
-        console.error('Erreur lors de la création du défi:', error);
-        alert('Une erreur est survenue lors de la création du défi');
-    }
+  } catch (error) {
+    console.error('Error when retrieving challenges:', error);
+    console.error('Error when retrieving challenges');
+  }
 }
 
 
 async function getMyChallenges(userId) {
-    try {
-        const response = await fetch(`http://localhost:5000/my-challenges?userId=${userId}`);
-        const {
-            challenges
-        } = await response.json();
+  try {
+    const response = await fetch(`https://hosting-backend-web-2-august-wail-el.onrender.com/my-challenges?userId=${userId}`);
+    const {
+      challenges
+    } = await response.json();
 
-        const myChallengesList = document.getElementById('my-challenges-list');
-        myChallengesList.innerHTML = '';
+    const myChallengesList = document.getElementById('my-challenges-list');
+    myChallengesList.innerHTML = '';
 
-        challenges.forEach(challenge => {
-            const challengeElement = createChallengeElement(challenge);
+    challenges.forEach(challenge => {
+      const challengeElement = createChallengeElement(challenge);
 
-            const deleteButton = document.createElement('button');
-            deleteButton.textContent = 'Delete';
-            deleteButton.addEventListener('click', () => {
-                deleteChallenge(challenge.challengeId);
-            });
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Delete';
+      deleteButton.addEventListener('click', () => {
+        deleteChallenge(challenge.challengeId);
+      });
 
-            challengeElement.appendChild(deleteButton);
-            myChallengesList.appendChild(challengeElement);
-        });
-    } catch (error) {
-        console.error('Erreur lors de la récupération des défis de l\'utilisateur:', error);
-        alert('Une erreur est survenue lors de la récupération des défis de l\'utilisateur');
-    }
+      challengeElement.appendChild(deleteButton);
+      myChallengesList.appendChild(challengeElement);
+    });
+  } catch (error) {
+    console.log('Error when retrieving challenges of user:', error);
+    console.log('Error when retrieving challenges of user');
+  }
 }
 
 async function deleteChallenge(challengeId) {
-    try {
-        const response = await fetch(`http://localhost:5000/deleteChallenge/${challengeId}`, {
-            method: 'DELETE'
-        });
+  try {
+    const response = await fetch(`https://hosting-backend-web-2-august-wail-el.onrender.com/deleteChallenge/${challengeId}`, {
+      method: 'DELETE'
+    });
 
-        const {
-            message
-        } = await response.json();
+    const {
+      message
+    } = await response.json();
 
-        if (response.ok) {
-            alert(message);
-            const currentChallengeIds = JSON.parse(localStorage.getItem('currentChallengeIds')) || [];
-            const updatedChallengeIds = currentChallengeIds.filter(id => id !== challengeId);
-            localStorage.setItem('currentChallengeIds', JSON.stringify(updatedChallengeIds));
-            const userId = localStorage.getItem('userId');
-            if (userId) {
-                getMyChallenges(userId);
-            }
-        } else {
-            alert(message);
-        }
-    } catch (error) {
-        console.error('Erreur lors de la suppression du défi:', error);
-        alert('Une erreur est survenue lors de la suppression du défi');
+    if (response.ok) {
+      displayFeedback(message);
+      const currentChallengeIds = JSON.parse(localStorage.getItem('currentChallengeIds')) || [];
+      const updatedChallengeIds = currentChallengeIds.filter(id => id !== challengeId);
+      localStorage.setItem('currentChallengeIds', JSON.stringify(updatedChallengeIds));
+      const userId = localStorage.getItem('userId');
+      if (userId) {
+        getMyChallenges(userId);
+      }
+    } else {
+      displayFeedback(message);
     }
+  } catch (error) {
+    console.error('Error deleting challenges:', error);
+    displayFeedback('Error deleting this challenge');
+  }
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-    const userId = localStorage.getItem('userId');
-    if (userId) {
-        getMyChallenges(userId);
-    }
+  const userId = localStorage.getItem('userId');
+  if (userId) {
+    getMyChallenges(userId);
+  }
 
-    const currentChallengeIds = JSON.parse(localStorage.getItem('currentChallengeIds')) || [];
-    await Promise.all(
-        currentChallengeIds.map(async challengeId => {
-            const response = await fetch(`http://localhost:5000/challenges/${challengeId}`);
-            const challenge = await response.json();
-            const challengeElement = createChallengeElement(challenge);
-            document.getElementById('challenges-list').appendChild(challengeElement);
-        })
-    );
+  const currentChallengeIds = JSON.parse(localStorage.getItem('currentChallengeIds')) || [];
+  await Promise.all(
+    currentChallengeIds.map(async challengeId => {
+      const response = await fetch(`https://hosting-backend-web-2-august-wail-el.onrender.com/challenges/${challengeId}`);
+      const challenge = await response.json();
+      const challengeElement = createChallengeElement(challenge);
+      document.getElementById('challenges-list').appendChild(challengeElement);
+    })
+  );
 });
 
 document.getElementById('create-challenge-form').addEventListener('submit', createChallenge);

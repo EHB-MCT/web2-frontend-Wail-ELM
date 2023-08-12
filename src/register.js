@@ -68,16 +68,16 @@ function registerUser(e) {
   })
     .then(response => response.json())
     .then(data => {
-      if (data.message === 'Inscription réussie') {
+      if (data.message === 'Successful registration') {
         localStorage.setItem('userId', data.userId);
-        displayFeedback('Inscription réussie !', 'success');
+        displayFeedback('Successful registration !', 'success');
       } else {
-        displayFeedback('Erreur lors de l\'inscription : ' + data.message);
+        displayFeedback('Error when registering : ' + data.message);
       }
     })
     .catch(error => {
-      console.error('Erreur lors de l\'inscription :', error);
-      displayFeedback('Une erreur est survenue lors de l\'inscription');
+      console.error('Error when registering :', error);
+      displayFeedback('Error when registering');
     });
 }
 

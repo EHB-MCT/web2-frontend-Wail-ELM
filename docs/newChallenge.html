@@ -1,27 +1,27 @@
-
-
-
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <title>Create Challenge</title>
-  <link rel="stylesheet" href="/src/style.css">
+  <link rel="stylesheet" href="style.css">
 
 </head>
+
 <body>
 
 
   <div class="navbar">
-    <a href="/login.html">Login</a>
-    <a href="/register.html">Register</a>
-    <a href="/home.html">Home</a>
-    <a href="/newChallenge.html">Create New Challenge</a>
-    <a href="/myChallenges.html">My Challenges</a>
-  </div> <h1 style="color: #00ff00;">Create Challenge</h1>
- 
+    <a href="login.html">Login</a>
+    <a href="register.html">Register</a>
+    <a href="home.html">Home</a>
+    <a href="newChallenge.html">Create New Challenge</a>
+    <a href="myChallenges.html">My Challenges</a>
+  </div>
+  <h1 style="color: #00ff00;">Create Challenge</h1>
+
   <form id="create-challenge-form">
-   
+
     <label for="picture">Picture:</label>
     <input type="text" id="picture" required>
 
@@ -34,7 +34,7 @@
     <label for="dataset">Dataset:</label>
     <input type="text" id="dataset" required>
 
-  
+
 
     <label for="result">Result:</label>
     <input type="text" id="result" required>
@@ -43,62 +43,61 @@
   </form>
   <div id="feedback"></div>
 
-  <script src="/src/scripts.js"></script>
+  <script src="script.js" defer></script>
 </body>
 
 <style>
+  .navbar {
+    margin-bottom: 4em;
+  }
 
-    .navbar{
-        margin-bottom: 4em;
-    }
+  h1 {
+    text-align: center;
+  }
 
-    h1{
-        text-align: center;
-    }
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #111;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    color: #fff;
+  }
 
-    form {
-        max-width: 400px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #111;
-        border-radius: 8px;
-        font-family: 'Courier New', monospace;
-        color: #fff;
-    }
+  label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+  }
 
-    label {
-        font-size: 14px;
-        display: block;
-        margin-bottom: 5px;
-    }
+  input[type="text"],
+  textarea {
+    width: 95%;
+    padding: 10px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 4px;
+  }
 
-    input[type="text"],
-    textarea {
-        width: 95%;
-        padding: 10px;
-        border: none;
-        background-color: #333;
-        color: #fff;
-        border-radius: 4px;
-    }
+  button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #00ff00;
+    border: none;
+    color: black;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+  }
 
-    button[type="submit"] {
-        display: block;
-        width: 100%;
-        padding: 10px;
-        background-color: #00ff00;
-        border: none;
-        color: black;
-        font-size: 16px;
-        text-align: center;
-        cursor: pointer;
-        border-radius: 4px;
-    }
-
-    button[type="submit"]:hover {
-        background-color: purple;
-        color: #fff;
-    }
+  button[type="submit"]:hover {
+    background-color: purple;
+    color: #fff;
+  }
 </style>
-</html>
 
+</html>

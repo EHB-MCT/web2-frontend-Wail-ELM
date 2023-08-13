@@ -410,63 +410,6 @@ async function playChallenge(challengeId) {
 }
 
 
-// async function createChallenge(event) {
-//     event.preventDefault();
-
-//     const text = document.getElementById('text').value;
-//     const description = document.getElementById('description').value;
-//     const dataset = document.getElementById('dataset').value;
-//     const picture = document.getElementById('picture').value;
-//     const result = document.getElementById('result').value;
-
-//     const userId = localStorage.getItem('userId');
-//     if (!userId) {
-//         console.log('Connectez-vous d\'abord');
-//         return;
-//     }
-
-//     const challengeData = {
-//         text,
-//         description,
-//         dataset,
-//         picture,
-//         result,
-//         userId
-//     };
-
-//     try {
-//         const response = await fetch('http://localhost:5000/newChallenges', {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify(challengeData)
-//         });
-
-//         const {
-//             message,
-//             challengeId
-//         } = await response.json();
-
-//         if (response.ok) {
-//             alert(`${message} Challenge ID: ${challengeId}`);
-//             const currentChallengeIds = JSON.parse(localStorage.getItem('currentChallengeIds')) || [];
-//             currentChallengeIds.push(challengeId);
-//             localStorage.setItem('currentChallengeIds', JSON.stringify(currentChallengeIds));
-//             document.getElementById('create-challenge-form').reset();
-//             getAllChallenges();
-//         } else {
-//             alert(message);
-//         }
-//     } catch (error) {
-//         console.error('Erreur lors de la création du défi:', error);
-//         alert('Une erreur est survenue lors de la création du défi');
-//     }
-// }
-
-
-// Fonction pour créer un nouveau défi
-
 
 async function createChallenge(event) {
   event.preventDefault();

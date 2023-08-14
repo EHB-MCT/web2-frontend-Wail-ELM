@@ -14,19 +14,22 @@
   <div class="navbar">
     <a href="login.html">Login</a>
     <a href="register.html">Register</a>
-    <a href="home.html">Home</a>
+    <a href="index.html">Home</a>
     <a href="newChallenge.html">Create New Challenge</a>
     <a href="myChallenges.html">My Challenges</a>
   </div>
-  <h1 style="color: #00ff00;">Create Challenge</h1>
+  
 
   <form id="create-challenge-form">
+    <h1 style="color: #00ff00;">Create Challenge</h1>
+
+    
+    <label for="text">Title:</label>
+    <input type="text" id="text" required>
 
     <label for="picture">Picture:</label>
-    <input type="text" id="picture" required>
+    <input type="text" id="picture" required placeholder="Write a description">
 
-    <label for="text">Text:</label>
-    <input type="text" id="text" required>
 
     <label for="description">Description:</label>
     <textarea id="description" required></textarea>

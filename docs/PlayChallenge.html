@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Play Challenge</title>
+</head>
+<body>
+    
+    
+    <div class="navbar">
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+        <a href="index.html">Home</a>
+        <a href="newChallenge.html">Create New Challenge</a>
+        <a href="myChallenges.html">My Challenges</a>
+    </div>
+
+  <div class="container-play-challenge-page">
+    <div class="play-challenge-header"> 
+      <h1 style="color: #00ff00;">Play Challenge</h1> 
+    </div>
+
+
+    <div class="create-challenge-form" style="text-align: center;" >
+      <div class="form-group">
+        <p id="challenge-description" class="challenge-description"></p>
+        <img id="challenge-image" alt="Challenge Picture" class="challenge-image play-image">
+        <p id="challenge-dataset" class="challenge-dataset"></p>
+      </div>
+
+      <div class="form-group">
+        <label for="result-input">Submit:</label>
+        <div class="input-container">
+          <input type="text" id="result-input" placeholder="Enter your result" required>
+        </div>
+      </div>
+
+      <button id="submit-result" class="create-btn green-btn">Submit</button>
+      <p id="result-message" class="create-challenge-message"></p>
+
+      <button id="back-button" class="create-btn">Back</button>
+    </div>
+  </div>
+
+  <script src="PlayChallenge.js"></script>
+</body>
+</html>
